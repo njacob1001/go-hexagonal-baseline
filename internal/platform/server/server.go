@@ -3,6 +3,7 @@ package server
 
 import (
 	"fmt"
+	"http-api/internal/platform/server/handler/courses"
 	"http-api/internal/platform/server/handler/health"
 	"log"
 	"github.com/gin-gonic/gin"
@@ -30,4 +31,5 @@ func (s *Server) Run() error {
 
 func (s *Server) registerRoutes() {
 	s.engine.GET("/health", health.CheckHandler())
+	s.engine.POST("/courses", courses.CreateHandler())
 }
